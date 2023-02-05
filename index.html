@@ -17,6 +17,7 @@
       document.getElementById("inspiring-message").innerHTML = randomMessage;
     }
 
+    window.onload = sendInspiringMessage;
     setInterval(sendInspiringMessage, 86400000);
   </script>
 </head>
