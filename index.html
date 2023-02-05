@@ -1,42 +1,26 @@
 <html>
 <head>
   <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Sep 5, 2023 16:37:25").getTime();
+    var messages = [
+      "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.",
+      "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "The only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it.",
+      "Don’t watch the clock; do what it does. Keep going.",
+      "You miss 100% of the shots you don’t take.",
+      "Successful people do what unsuccessful people are not willing to do. Don’t wish it were easier; wish you were better.",
+      "Successful people are not gifted; they just work hard, then succeed on purpose.",
+      "Success is a journey, not a destination. The doing is often more important than the outcome."
+    ];
 
-    // Update the count down every 1 second
-    var x = setInterval(function() {
+    function sendInspiringMessage() {
+      var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById("inspiring-message").innerHTML = randomMessage;
+    }
 
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="countdown"
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      // If the count down is finished, write some text 
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-      }
-    }, 1000);
+    setInterval(sendInspiringMessage, 86400000);
   </script>
 </head>
 <body>
-  <div id="countdown">
-    <script>
-      // Display the countdown clock
-      document.write("<h1>Countdown Clock</h1>");
-    </script>
-  </div>
+  <div id="inspiring-message"></div>
 </body>
 </html>
