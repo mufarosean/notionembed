@@ -3,34 +3,36 @@
   <style>
     #inspiring-message {
       background-color: white;
-      font-family: 'Public Sans Bold', sans-serif;
+      font-family: 'Old Standard TT', serif;
       text-align: center;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 10px;
     }
   </style>
   <script>
     var messages = [
-      "BELIEVE IN YOURSELF AND ALL THAT YOU ARE. KNOW THAT THERE IS SOMETHING INSIDE YOU THAT IS GREATER THAN ANY OBSTACLE.",
-      "SUCCESS IS NOT FINAL, FAILURE IS NOT FATAL: IT IS THE COURAGE TO CONTINUE THAT COUNTS.",
-      "THE ONLY WAY TO DO GREAT WORK IS TO LOVE WHAT YOU DO. IF YOU HAVEN’T FOUND IT YET, KEEP LOOKING. DON’T SETTLE. AS WITH ALL MATTERS OF THE HEART, YOU’LL KNOW WHEN YOU FIND IT.",
-      "DON’T WATCH THE CLOCK; DO WHAT IT DOES. KEEP GOING.",
-      "YOU MISS 100% OF THE SHOTS YOU DON’T TAKE.",
-      "SUCCESSFUL PEOPLE DO WHAT UNSUCCESSFUL PEOPLE ARE NOT WILLING TO DO. DON’T WISH IT WERE EASIER; WISH YOU WERE BETTER.",
-      "SUCCESSFUL PEOPLE ARE NOT GIFTED; THEY JUST WORK HARD, THEN SUCCEED ON PURPOSE.",
-      "SUCCESS IS A JOURNEY, NOT A DESTINATION. THE DOING IS OFTEN MORE IMPORTANT THAN THE OUTCOME."
+      "believe in yourself and all that you are. know that there is something inside you that is greater than any obstacle.",
+      "success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "the only way to do great work is to love what you do. if you haven’t found it yet, keep looking. don’t settle. as with all matters of the heart, you’ll know when you find it.",
+      "don’t watch the clock; do what it does. keep going.",
+      "you miss 100% of the shots you don’t take.",
+      "successful people do what unsuccessful people are not willing to do. don’t wish it were easier; wish you were better.",
+      "successful people are not gifted; they just work hard, then succeed on purpose.",
+      "success is a journey, not a destination. the doing is often more important than the outcome."
     ];
 
+    var currentMessage = 0;
+
     function sendInspiringMessage() {
-      var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      document.getElementById("inspiring-message").innerHTML = randomMessage;
+      document.getElementById("inspiring-message").innerHTML = messages[currentMessage];
+      currentMessage = (currentMessage + 1) % messages.length;
     }
 
     window.onload = sendInspiringMessage;
-    setInterval(sendInspiringMessage, 86400000);
+    setInterval(sendInspiringMessage, 3600000);
   </script>
 </head>
 <body>
